@@ -135,9 +135,9 @@ GameObject:
   - component: {fileID: 408995494}
   - component: {fileID: 408995493}
   - component: {fileID: 408995492}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door (Yellow)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -230,9 +230,9 @@ GameObject:
   - component: {fileID: 476258874}
   - component: {fileID: 476258873}
   - component: {fileID: 476258872}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door (Green)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,8 +245,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 476258870}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.11, y: 2.6446, z: 8.65}
-  m_LocalScale: {x: 1, y: 5.4273024, z: 4.9031944}
+  m_LocalPosition: {x: 3.11, y: 2.6446, z: 8.5174}
+  m_LocalScale: {x: 1, y: 5.4273024, z: 4.408462}
   m_Children: []
   m_Father: {fileID: 1500254228}
   m_RootOrder: 11
@@ -798,9 +798,9 @@ GameObject:
   - component: {fileID: 1275294969}
   - component: {fileID: 1275294968}
   - component: {fileID: 1275294967}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Door (Red)
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1550,5 +1550,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7775273409145954549, guid: def066dad237f4c478bb86655fce3eba, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a98cb47aa5c7340409e2a178a3be7299, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: def066dad237f4c478bb86655fce3eba, type: 3}

@@ -22,6 +22,7 @@ public class Door : MonoBehaviour
             if(isInRange)
             {
                 _lock.PickLock();
+                doorInteractWindow.SetActive(false);
             }   
         }
     }

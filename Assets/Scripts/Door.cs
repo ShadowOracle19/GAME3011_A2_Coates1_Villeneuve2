@@ -10,14 +10,27 @@ public class Door : MonoBehaviour
     public Text difficultyText;
     public bool isInRange = false;
     private Lock _lock;
-
+    
     void Start()
     {
         _lock = GetComponent<Lock>();
+        
     }
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E))
+        if (_lock.difficulty == 1)
+        {
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.green);
+        }
+        else if (_lock.difficulty == 2)
+        {
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.yellow);
+        }
+        else if (_lock.difficulty == 3)
+        {
+            gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+        }
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if(isInRange)
             {

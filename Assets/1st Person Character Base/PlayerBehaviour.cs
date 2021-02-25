@@ -21,6 +21,9 @@ public class PlayerBehaviour : MonoBehaviour
     [Header("Character Controller")]
     public CharacterController controller;
 
+    [Header("Character Skills")]
+    public int lockpickLevel;
+
     // Start is called before the first frame update
     void Start()
     {

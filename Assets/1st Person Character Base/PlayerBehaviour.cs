@@ -55,7 +55,21 @@ public class PlayerBehaviour : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            RaycastHit hit;
+            if(Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, 1.0f))
+            {
+                Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                if(hit.collider.gameObject.tag == "Door")
+                {
+                    //Door click
+                    Debug.Log("door hit");
+                }
+            }
+        }
 
+        
     }
 
     void OnDrawGizmos()

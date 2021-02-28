@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
         {
             if(isInRange)
             {
-                _lock.PickLock();
+                _lock.PickLock(_lock.difficulty);
                 doorInteractWindow.SetActive(false);
             }   
         }

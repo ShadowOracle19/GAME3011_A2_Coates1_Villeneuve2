@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+
+
 public class Lock : MonoBehaviour
 {
     public GameObject LockpickingWindow;
@@ -13,6 +16,7 @@ public class Lock : MonoBehaviour
 
     public PlayerBehaviour playerBehaviour;
     public CameraController cameraController;
+    public int currentDifficulty;
 
     // Start is called before the first frame update
     void Start()
@@ -32,14 +36,14 @@ public class Lock : MonoBehaviour
         lockpickLevelText.text = playerBehaviour.lockpickLevel.ToString();
     }
 
-    public void PickLock()
+    public void PickLock(int difficulty)
     {
         Cursor.lockState = CursorLockMode.None;
         playerBehaviour.enabled = false;
         cameraController.enabled = false;
         LockpickingWindow.SetActive(true);
         isLockpickingWindowActive = true;
-        
+        currentDifficulty = difficulty;
     }
 
     public void ExitLockPicking()

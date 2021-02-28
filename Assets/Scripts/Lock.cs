@@ -21,8 +21,7 @@ public class Lock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerBehaviour = FindObjectOfType<PlayerBehaviour>();
-        cameraController = FindObjectOfType<CameraController>();
+        
     }
 
     // Update is called once per frame

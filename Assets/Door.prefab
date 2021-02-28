@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 4493519517164450018}
   - component: {fileID: 4493519517164450022}
   - component: {fileID: 4493519517164450017}
-  - component: {fileID: 4493519517164450023}
   m_Layer: 7
   m_Name: Door
   m_TagString: Door
@@ -126,20 +125,15 @@ MonoBehaviour:
   doorInteractWindow: {fileID: 0}
   difficultyText: {fileID: 0}
   isInRange: 0
---- !u!114 &4493519517164450023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4493519517164450028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d23db433372c0b643806910af78de089, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  LockpickingWindow: {fileID: 0}
-  difficulty: 1
-  lockpickLevelText: {fileID: 0}
+  lockpicking: {fileID: 0}
   playerBehaviour: {fileID: 0}
   cameraController: {fileID: 0}
+  LockpickingWindow: {fileID: 0}
+  difficulty: 0
+  lockpickLevelText: {fileID: 0}
+  currentDifficulty: 0
+  lockPickSweetSpot: 15
+  lockPickDiff: 30
+  lockAngle: 0
+  mouseX: 0
+  lockpickCenter: {fileID: 0}

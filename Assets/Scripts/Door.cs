@@ -27,6 +27,13 @@ public class Door : MonoBehaviour
     public GameObject lockpickCenter;
     public GameObject lockpick;
 
+
+    public Text timerText;
+    public float timer;
+
+    [SerializeField]
+    private int attempts;
+
     void Start()
     {
         playerBehaviour = FindObjectOfType<PlayerBehaviour>();
@@ -39,22 +46,27 @@ public class Door : MonoBehaviour
         {
             lockPickSweetSpot = 25;
             lockPickDiff = 50;
+            
         }
         else if (difficulty == 2)//normal
         {
             lockPickSweetSpot = 15;
             lockPickDiff = 30;
+
         }
         else if (difficulty >= 3)//hard
         {
             lockPickSweetSpot = 10;
             lockPickDiff = 25;
+            attempts = 6;
+
         }
         #endregion
     }
     void Update()
     {
         lockpickLevelText.text = playerBehaviour.lockpickLevel.ToString();
+
 
         #region difficulty colors
         if (difficulty == 1)
@@ -75,11 +87,31 @@ public class Door : MonoBehaviour
         {
             if(isInRange)
             {
-                
+                switch (difficulty)
+                {
+                    case 1:
+                        timer = 60;
+                        attempts = 10;
+
+                        break;
+                    case 2:
+                        timer = 30;
+                        attempts = 8;
+
+                        break;
+                    case 3:
+                        timer = 20;
+                        attempts = 6;
+
+                        break;
+                }
                 PickLock();
                 doorInteractWindow.SetActive(false);
-            }   
+
+            }
         }
+
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
             if (isLockpickingWindowActive)
@@ -95,12 +127,27 @@ public class Door : MonoBehaviour
 
             lockpickCenter.transform.localRotation = Quaternion.Euler(0f, 0f, -mouseX);
 
+
+            timer -= Time.deltaTime;
+
+            string minutes = ((int)timer / 60).ToString();
+            string seconds = (timer % 60).ToString("f2");
+
+            timerText.text = minutes + ":" + seconds;
+
+            if(timer <= 0)
+            {
+                Debug.Log("You didn't make it in time!");
+                ExitLockPicking();
+            }
+
             if (Input.GetKeyDown(KeyCode.D))
             {
-                if (Mathf.Abs(lockAngle - mouseX) <= lockPickSweetSpot)
+                if (Mathf.Abs(lockAngle - mouseX) <= (lockPickSweetSpot * 1 + ((playerBehaviour.lockpickLevel - 1) / 10)))
                 {
                 
                     gameObject.transform.position = new Vector3(0f, -20f, 0f);
+                    playerBehaviour.lockpickLevel++;
                     ExitLockPicking();
                     return;
                     
@@ -108,6 +155,17 @@ public class Door : MonoBehaviour
                 else if (Mathf.Abs(lockAngle - mouseX) <= lockPickDiff)
                 {
                     Debug.Log("you are close");
+                    attempts--;
+                }
+                else
+                {
+                    attempts--;
+                }
+
+                if(attempts <= 0)
+                {
+                    ExitLockPicking();
+                    Debug.Log("Your lockpick broke!");
                 }
             }
             

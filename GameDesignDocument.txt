@@ -1,0 +1,15 @@
+ADVANCED GAME PROGRAMMING
+ASSIGNMENT 2, GAME DESIGN DOCUMENT
+
+This lockpicking system would be designed for some sort of open world game or puzzle game.
+The lock can be accessed by pressing an input key while near a door (right now it's E but it could be anything)
+Once the lock is accessed, movement is disabled and you can use your mouse to rotate the pick, by moving your mouse left and right.
+Once you think the pick is in the right place, press D (right) to push it and attempt to unlock.
+Pressing D will use an attempt, or a "pick". Your difficulty dictates how many picks you have.
+If you are close, the game will let you know. If you succeed, that is, are within range of the unlock value, the door opens
+We have easy, medium, and hard. Each difficulty has a timer, this timer remains the same regardless of player skill.
+Easy gives you 60 seconds and 10 attempts, and the range value is large.
+Medium gives you 30 seconds and 8 attempts, with an intermediate range.
+Hard gives you 20 seconds and 6 attempts, with a narrow range.
+The player's skill affects the range of success. The higher your skill, the larger the range of success will be.
+Skill does not affect time or attempts, only the range of success. Skill linearly progresses, and at skill level 10, the range of success will double.

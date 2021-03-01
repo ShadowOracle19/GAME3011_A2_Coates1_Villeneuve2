@@ -34,10 +34,14 @@ public class Door : MonoBehaviour
     [SerializeField]
     private int attempts;
 
+    public AudioClip picking;
+    AudioSource audioSource;
+
     void Start()
     {
         playerBehaviour = FindObjectOfType<PlayerBehaviour>();
         cameraController = FindObjectOfType<CameraController>();
+        audioSource = GetComponent<AudioSource>();
         lockAngle = Random.Range(-180, 180);
         //difficulty = Random.Range(1, 4); //uncomment to make door difficulty random
         
@@ -156,6 +160,7 @@ public class Door : MonoBehaviour
                 {
                     Debug.Log("you are close");
                     attempts--;
+                    audioSource.PlayOneShot(picking, 0.7f);
                 }
                 else
                 {
